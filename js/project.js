@@ -32,6 +32,7 @@ $(document).ready(function(){
         console.error(err);
         return;
       }
+      $('#current-user').html('Welcome, ' + $('#log-email').val() + '! <span class="caret"></span>');
     };
     api.login(credentials, loginCb);
   }); // end submit login click handler
