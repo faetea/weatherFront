@@ -1,8 +1,14 @@
-.modal-header {
-  text-align: right;
-  padding-top: 15px;
-}
-
 #close {
   color: #bdbdbd;
+  float: right;
+}
+
+.modal-title {
+  padding-left: 24px;
+  padding-top: 24px;
+  padding-bottom: 0px;
+}
+
+.modal-content > p {
+  text-align: center;
 }

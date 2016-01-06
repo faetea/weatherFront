@@ -24,30 +24,29 @@
       <div id="register-modal" class="modal">
         <div class="modal-header">
           <a href="#!" class="modal-action modal-close btn-flat" id="close"><i class="fa fa-times"></i></a>
+          <h5 class="modal-title">Please Register</h5>
         </div>
         <div class="modal-content">
-          <h4>Register</h4>
-
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="reg-email" type="email" class="validate">
+                <label for="email">Email</label>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
+              <div class="input-field col s12">
+                <input id="reg-password" type="password" class="validate">
+                <label for="password">Password</label>
               </div>
-            </form>
+              <div class="input-field col s12">
+                <input id="reg-confirm" type="password" class="validate">
+                <label for="password">Confirm Password</label>
+              </div>
+            </div>
+          </form>
           <p>Already have an account? <a class="modal-action modal-close waves-effect waves-green btn-flat btn modal-trigger" href="#login-modal">Login</a></p>
-          </div>
         </div>  <!-- end modal-content -->
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create New User</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat btn" id="register">Create User</a>
         </div>
       </div>  <!-- end Register-Modal -->
 
@@ -56,29 +55,25 @@
       <div id="login-modal" class="modal">
         <div class="modal-header">
           <a href="#!" class="modal-action modal-close btn-flat" id="close"><i class="fa fa-times"></i></a>
+          <h5 class="modal-title">Please Login</h5>
         </div>
         <div class="modal-content">
-          <div class="row">
-          <h4>Login</h4>
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="log-email" type="email" class="validate">
+                <label for="email">Email</label>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
+              <div class="input-field col s12">
+                <input id="log-password" type="password" class="validate">
+                <label for="password">Password</label>
               </div>
-            </form>
+            </div>
+          </form>
           <p>No account yet? <a class="modal-action modal-close waves-effect waves-green btn-flat btn modal-trigger" href="#register-modal">Register</a></p>
-          </div>
         </div>  <!-- end modal-content -->
         <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sign In</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat btn" id="login">Sign In</a>
         </div>
       </div>  <!-- end Login-Modal -->
 
@@ -88,5 +83,6 @@
       <script type="text/javascript" src="js/materialize.min.js"></script>
 
       <script type="text/javascript" src="js/project.js"></script>
+      <script type="text/javascript" src="js/api.js"></script>
     </body>
   </html>
