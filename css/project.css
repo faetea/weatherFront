@@ -1,0 +1,8 @@
+.modal-header {
+  text-align: right;
+  padding-top: 15px;
+}
+
+#close {
+  color: #bdbdbd;
+}

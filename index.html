@@ -1,29 +1,92 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link rel="stylesheet" href="">
-</head>
-<body>
+  <html>
+    <head>
+      <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Weather Health</title>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <link rel="stylesheet" href="css/project.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
 
-<div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
-        <label for="email">Email</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="password" type="password" class="validate">
-        <label for="password">Password</label>
-      </div>
-    </div>
-  </form>
-</div>
+    <body>
 
-</body>
-</html>
+      <!-- Register Modal Trigger -->
+      <a class="waves-effect waves-light btn modal-trigger" href="#register-modal">Register</a>
+      <!-- Login Modal Trigger -->
+      <a class="waves-effect waves-light btn modal-trigger" href="#login-modal">Login</a>
+
+      <!-- Register Modal Structure -->
+      <div id="register-modal" class="modal">
+        <div class="modal-header">
+          <a href="#!" class="modal-action modal-close btn-flat" id="close"><i class="fa fa-times"></i></a>
+        </div>
+        <div class="modal-content">
+          <h4>Register</h4>
+
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+            </form>
+          <p>Already have an account? <a class="modal-action modal-close waves-effect waves-green btn-flat btn modal-trigger" href="#login-modal">Login</a></p>
+          </div>
+        </div>  <!-- end modal-content -->
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create New User</a>
+        </div>
+      </div>  <!-- end Register-Modal -->
+
+
+      <!-- Login Modal Structure -->
+      <div id="login-modal" class="modal">
+        <div class="modal-header">
+          <a href="#!" class="modal-action modal-close btn-flat" id="close"><i class="fa fa-times"></i></a>
+        </div>
+        <div class="modal-content">
+          <div class="row">
+          <h4>Login</h4>
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+            </form>
+          <p>No account yet? <a class="modal-action modal-close waves-effect waves-green btn-flat btn modal-trigger" href="#register-modal">Register</a></p>
+          </div>
+        </div>  <!-- end modal-content -->
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sign In</a>
+        </div>
+      </div>  <!-- end Login-Modal -->
+
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
+      <script type="text/javascript" src="js/project.js"></script>
+    </body>
+  </html>
