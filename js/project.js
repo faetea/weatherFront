@@ -37,5 +37,10 @@ $(document).ready(function(){
     api.login(credentials, loginCb);
   }); // end submit login click handler
 
+  // sync openWeather
+  $('#openWeather').click(function() {
+    api.sync();
+  });
+
 
   }); // end document ready
