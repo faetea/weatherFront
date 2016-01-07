@@ -37,10 +37,24 @@ $(document).ready(function(){
     api.login(credentials, loginCb);
   }); // end submit login click handler
 
+
   // sync openWeather
   $('#openWeather').click(function() {
     api.sync();
   });
+
+
+  // add health entry button click handler
+  $('#add-entry-button').click(function(){
+
+    });
+
+
+  // list health entry button click handler
+  $('#list-entries-button').click(function(){
+
+    });
+
 
   // chart.js
   var randomScalingFactor = function () {
