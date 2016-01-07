@@ -40,4 +40,22 @@ var api = {
     }, callback);
   },
 
+  createEntry: function (newEntry, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/entries',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(newEntry),
+      xhrFields: { withCredentials: true } // tells jquery to use cookies
+    }, callback);
+  },
+
+  showList: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/entries',
+      xhrFields: { withCredentials: true }
+    }, callback);
+  },
+
 }; // end api

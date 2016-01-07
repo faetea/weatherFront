@@ -19,40 +19,32 @@
       <a class="waves-effect waves-light btn modal-trigger" href="#register-modal">Register</a>
       <!-- Login Modal Trigger -->
       <a class="waves-effect waves-light btn modal-trigger" href="#login-modal">Login</a>
-
+      <!-- display current-user -->
       <a href="#" id='current-user'><span class="caret"></span></a>
 
-      <!-- external weather API -->
-      <a class="waves-effect waves-light btn" href="#" id="openWeather">Sync</a>
+      <!-- sync external weather API -->
+      <a class="waves-effect waves-light btn" href="#chart-canvas" id="openWeather">Sync</a>
 
-      <!-- create new health entry -->
-      <a class="waves-effect waves-light btn" href="#healthEntry" id="add-entry-button">add Health Entry</a>
-      <!-- create new health entry -->
-      <a class="waves-effect waves-light btn" href="#healthEntry" id="list-entries-button">list Health Entries</a>
+      <!-- create add health entry -->
+      <a class="waves-effect waves-light btn" href="#add-entry" id="add-entry-button">add Health Entry</a>
+      <!-- create list health entries -->
+      <a class="waves-effect waves-light btn" href="#list-entries" id="list-entries-button">list Health Entries</a>
 
-
-      <a class="btn-floating"><i class="material-icons">add</i></a>
-      <a class="btn-floating"><i class="fa fa-plus"></i></a>
-
-      <!-- action on hover -->
-      <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-        <a class="btn-floating btn-large red">
-          <i class="large material-icons">mode_edit</i>
-        </a>
-        <ul>
-          <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-          <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-          <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-        </ul>
-      </div>
-
-      <!-- chart.js canvas -->
-      <div style="width:30%">
-        <div>
-          <canvas id="canvas" height="450" width="600"></canvas>
+      <section id="chart-canvas">
+        <!-- chart.js canvas -->
+        <div class="container">
+          <div class="row">
+            <p class="flow-text chart-title">Canvas Line Chart</p>
+            <canvas id="canvas" height="200" width="600"></canvas>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section id="add-entry">
+      </section>
+
+      <section id="list-entries">
+      </section>
 
 
       <!-- Register Modal Structure -->

@@ -47,12 +47,23 @@ $(document).ready(function(){
   // add health entry button click handler
   $('#add-entry-button').click(function(){
 
+    var newEntry = {
+      // newEntry: $(this).attr('value')
+    };
+    api.createEntry(newEntry, function (err) {
+      if (err) {
+        console.error(err);
+      }
+      });
     });
 
 
   // list health entry button click handler
   $('#list-entries-button').click(function(){
-
+    api.showList(function (err, data) {
+      if (err) {
+        console.error(err);
+      }});
     });
 
 
