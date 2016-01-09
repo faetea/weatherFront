@@ -40,6 +40,15 @@ var api = {
     }, callback);
   },
 
+  pressure: function (callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/pressure',
+      contentType: 'application/json; charset=utf-8',
+      xhrFields: { withCredentials: true } // tells jquery to use cookies
+    }, callback);
+  },
+
   createEntry: function (newEntry, callback) {
     this.ajax({
       method: 'POST',
