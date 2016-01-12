@@ -60,13 +60,11 @@ $(document).ready(function(){
 
   $('#save-entry-button').click(function(){
     var newEntry = {
-      "entry":{
         "pain":$("#pain").val(),
         "mood":$("#mood").val(),
         "note":$("#note").val(),
         "symptoms":$("#symptoms").val(),
         "medication":$("#medication").val(),
-      }
     };
     api.createEntry(newEntry,
       function (err) {
