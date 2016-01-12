@@ -4,6 +4,8 @@ $(document).ready(function(){
     dismissible: true, // Modal can be dismissed by clicking outside of the modal
   });
 
+  $("#add-entry").hide();
+
   // register user
   $('#register').click(function(){
     var credentials = {
@@ -44,17 +46,36 @@ $(document).ready(function(){
   });
 
 
-  // add health entry button click handler
   $('#add-entry-button').click(function(){
+    // show form
+    $("#add-entry").show();
+  });
 
+
+  $('.cancel').click(function(){
+    // hide form
+    $("#add-entry").hide();
+    });
+
+
+  $('#save-entry-button').click(function(){
     var newEntry = {
-      // newEntry: $(this).attr('value')
-    };
-    api.createEntry(newEntry, function (err) {
-      if (err) {
-        console.error(err);
+      "entry":{
+        "pain":$("#pain").val(),
+        "mood":$("#mood").val(),
+        "note":$("#note").val(),
+        "symptoms":$("#symptoms").val(),
+        "medication":$("#medication").val(),
       }
+    };
+    api.createEntry(newEntry,
+      function (err) {
+        if (err) {
+          console.error(err);
+        }
       });
+    // hide form
+    $("#add-entry").hide();
     });
 
 

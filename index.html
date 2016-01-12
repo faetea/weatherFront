@@ -22,12 +22,6 @@
       <!-- display current-user -->
       <a href="#" id='current-user'><span class="caret"></span></a>
 
-      <!-- sync external weather API -->
-      <!-- <a class="waves-effect waves-light btn" href="#chart-canvas" id="openWeather">Sync</a> -->
-
-      <!-- pressure chart.js -->
-      <!-- <a class="waves-effect waves-light btn" href="#chart-canvas" id="pressure-chart">Barometric Pressure</a> -->
-
       <!-- create add health entry -->
       <a class="waves-effect waves-light btn" href="#add-entry" id="add-entry-button">add Health Entry</a>
       <!-- create list health entries -->
@@ -52,7 +46,7 @@
                 <div class="row">
                   <div class="col s12 m12 l6">
                   <label>How is your pain right now?</label>
-                  <select class="browser-default">
+                  <select class="browser-default" id="pain">
                     <option value="" disabled selected>Current Pain</option>
                     <option value="0">0 No Pain</option>
                     <option value="1">1 Can be ignored</option>
@@ -68,7 +62,7 @@
                   </div>
                   <div class="col s12 m12 l6">
                   <label>How is your mood right now?</label>
-                  <select class="browser-default">
+                  <select class="browser-default" id="mood">
                     <option value="" disabled selected>Current Mood</option>
                     <option value="1">1 Optimistic</option>
                     <option value="2">2 Hopeful</option>
@@ -112,8 +106,8 @@
                 </div>
               </div>
               <div class="card-action">
-                <a href="#">Cancel</a>
-                <a href="#">Save</a>
+                <a href="#" class="cancel">Cancel</a>
+                <a href="#" id="save-entry-button">Save</a>
               </div>
             </div>
           </div>
