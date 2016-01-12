@@ -13,22 +13,10 @@
   text-align: center;
 }
 
-#chart-canvas {
-  background-color: red;
-}
-
-#canvas {
-  background-color: white;
-}
-
 .chart-title {
   text-align: center;
 }
 
-#add-entry {
-  background-color: yellow;
-}
-
-#list-entries {
-  background-color: blue;
+.card-action {
+  text-align: right;
 }
