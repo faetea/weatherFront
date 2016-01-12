@@ -1,3 +1,29 @@
+nav {
+  background-color: #757575;
+}
+
+nav .brand-logo {
+  font-size: 1.5rem;
+}
+
+.button-collapse {
+  margin-left: 1rem;
+}
+
+nav ul a:hover {
+  background-color: rgba(0,0,0,0);
+/*  background-color: rgba(0,0,0,0.1);*/
+}
+
+#current-user {
+  color: #ffca28;
+}
+
+i.right {
+  float: right;
+  margin-left: 0px;
+}
+
 #close {
   color: #bdbdbd;
   float: right;

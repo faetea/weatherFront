@@ -15,6 +15,45 @@
 
     <body>
 
+      <nav>
+        <a href="#!" class="brand-logo center">Pressure Tracker</a>
+
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#!">First Sidebar Link</a></li>
+          <li><a href="#!">Second Sidebar Link</a></li>
+          <!-- display current-user -->
+          <li><a href="#!" class="dropdown-button" data-activates="dropdown1" id="current-user">Login/Register<i class="mdi-navigation-arrow-drop-down right"></i><span class="caret"></span></a></li>
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Login</a></li>
+            <li><a href="#!">Register</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#!">Logout</a></li>
+          </ul>
+        </ul>
+
+        <ul id="slide-out" class="side-nav">
+          <li><a href="#!">First Sidebar Link</a></li>
+          <li><a href="#!">Second Sidebar Link</a></li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="#!">First</a></li>
+                    <li><a href="#!">Second</a></li>
+                    <li><a href="#!">Third</a></li>
+                    <li><a href="#!">Fourth</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </nav>
+
       <!-- Register Modal Trigger -->
       <a class="waves-effect waves-light btn modal-trigger" href="#register-modal">Register</a>
       <!-- Login Modal Trigger -->
