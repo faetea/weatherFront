@@ -31,12 +31,49 @@ var api = {
     }, callback);
   },
 
+  logout: function (callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/logout',
+      contentType: 'application/json; charset=utf-8',
+      xhrFields: { withCredentials: true }, // tells jquery to use cookies
+      dataType: 'json'
+    }, callback);
+  },
+
   sync: function (callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/sync',
       contentType: 'application/json; charset=utf-8',
       xhrFields: { withCredentials: true } // tells jquery to use cookies
+    }, callback);
+  },
+
+  pressure: function (callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/pressure',
+      contentType: 'application/json; charset=utf-8',
+      xhrFields: { withCredentials: true } // tells jquery to use cookies
+    }, callback);
+  },
+
+  createEntry: function (newEntry, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/entries',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(newEntry),
+      xhrFields: { withCredentials: true } // tells jquery to use cookies
+    }, callback);
+  },
+
+  showList: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/entries',
+      xhrFields: { withCredentials: true }
     }, callback);
   },
 
