@@ -14,13 +14,12 @@
     </head>
 
     <body>
-
       <nav>
         <a href="#!" class="brand-logo center">Pressure Tracker</a>
 
         <ul class="right hide-on-med-and-down">
-          <li><a href="#!">First Navbar</a></li>
-          <li><a href="#!">Second Navbar</a></li>
+          <li><a href="#">Link A</a></li>
+          <li><a href="#">Link B</a></li>
           <!-- display current-user -->
           <li><a href="#!" class="dropdown-button current-user" data-activates="dropdown1">Login/Register<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
           <ul id='dropdown1' class='dropdown-content'>
@@ -28,6 +27,7 @@
             <li><a href="#login-modal" class="modal-trigger">Login</a></li>
             <!-- Register Modal Trigger -->
             <li><a href="#register-modal" class="modal-trigger">Register</a></li>
+            <li><a href="#!"><i class="fa fa-cog"></i> Settings</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#!" class="logout">Logout</a></li>
           </ul>
@@ -60,24 +60,26 @@
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </nav>
 
-      <!-- create add health entry -->
-      <a class="waves-effect waves-light btn" href="#add-entry" id="add-entry-button">add Health Entry</a>
       <!-- create list health entries -->
-      <a class="waves-effect waves-light btn" href="#list-entries" id="list-entries-button">list Health Entries</a>
+<!--       <a class="waves-effect waves-light btn" href="#" id="list-entries-button">list Health Entries</a> -->
 
-      <section id="chart-canvas">
-        <!-- chart.js canvas -->
-        <div class="container">
-          <div class="row">
-            <p class="flow-text chart-title">Barometric Pressure 02141</p>
-            <canvas id="canvas" height="200" width="600"></canvas>
-          </div>
-        </div>
-      </section>
-
-      <section id="add-entry">
+      <section>
         <div class="row">
-          <div class="col s12 m6">
+          <div class="col s12 m6 left" id="list-of-entries">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">My Health Entries</span>
+                <ul class="collection" id="list-view">
+                </ul>
+              </div>
+              <div class="card-action">
+                <!-- create list health entries -->
+                <a href="#" id="list-entries-button"><i class="material-icons">refresh</i></a>
+                <a href="#" id="add-entry-button">Create New Entry</a>
+              </div>
+            </div>
+          </div>  <!-- end list-of-entries -->
+          <div class="col s12 m6" id="add-entry-form">
             <div class="card">
               <div class="card-content">
                 <span class="card-title">New Health Entry</span>
@@ -148,13 +150,28 @@
                 <a href="#" id="save-entry-button">Save</a>
               </div>
             </div>
-          </div>
+          </div>  <!-- end New Health Entry -->
         </div>
       </section>
 
-      <section id="list-entries">
-      </section>
+      <script id="entry-script" type="text/x-handlebars-template">
+        {{#each logs}}
+        <li class="collection-item avatar">
+          <span class="title">{{createdAt}}</span>
+          <p>Pain: {{pain}}, Mood: {{mood}}, Note: {{note}}, Symptoms: {{symptoms}}, Medication: {{medication}}</p>
+        </li>
+        {{/each}}
+      </script>
 
+      <section id="chart-canvas">
+        <!-- chart.js canvas -->
+        <div class="container">
+          <div class="row">
+            <p class="flow-text chart-title">Barometric Pressure 02141</p>
+            <canvas id="canvas" height="200" width="600"></canvas>
+          </div>
+        </div>
+      </section>
 
       <!-- Register Modal Structure -->
       <div id="register-modal" class="modal">
@@ -217,6 +234,8 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+      <!-- handlebars -->
+      <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
       <!-- chart.js -->
       <script type="text/javascript" src="js/Chart.js"></script>
       <script type="text/javascript" src="js/Chart.Line.js"></script>

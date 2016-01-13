@@ -25,6 +25,10 @@ i.right {
   margin-left: 0px;
 }
 
+.dropdown-content {
+  margin-top: 64px;
+}
+
 #close {
   color: #bdbdbd;
   float: right;

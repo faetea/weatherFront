@@ -7,7 +7,9 @@ $(document).ready(function(){
     dismissible: true, // Modal can be dismissed by clicking outside of the modal
   });
 
-  $("#add-entry").hide();
+  // $("#add-entry").hide();
+
+  var dtf = new Intl.DateTimeFormat('en-us', { year: "numeric", month: "short", day: "numeric", hour: "2-digit" });
 
   // register user
   $('#register').click(function(){
@@ -24,6 +26,9 @@ $(document).ready(function(){
         if (err) { console.error(err); }
       });
     }
+    $('#reg-email').val("");
+    $('#reg-password').val("");
+    $('#reg-confirm').val("");
   }); // end submit register click handler
 
   // login user
@@ -38,8 +43,25 @@ $(document).ready(function(){
         return;
       }
       $('.current-user').html('Welcome, ' + $('#log-email').val() + '! <i class="mdi-navigation-arrow-drop-down right"></i>');
+      api.showList(function (err, data) {
+        if (err) {
+          console.error(err);
+        }
+        console.log(data);
+        // reverse list, most recent entries at top
+        data.logs.reverse();
+        for (var i = 0; i < data.logs.length; i++) {
+          console.log(data.logs[i].createdAt);
+          data.logs[i].createdAt = dtf.format(new Date(data.logs[i].createdAt));
+        }
+        // handlebars
+        var entryIndexTemplate = Handlebars.compile($('#entry-script').html());
+        var newHTML = entryIndexTemplate(data);
+        $("#list-view").html(newHTML);
+      });
     };
     api.login(credentials, loginCb);
+    $('#log-password').val("");
   }); // end submit login click handler
 
   // logout user
@@ -62,15 +84,19 @@ $(document).ready(function(){
 
 
   $('#add-entry-button').click(function(){
-    // show form
-    $("#add-entry").show();
+    $("#add-entry-form").show();
   });
 
 
   $('.cancel').click(function(){
     // hide form
-    $("#add-entry").hide();
-    });
+    // $("#add-entry").hide();
+    $("#pain").val("");
+    $("#mood").val("");
+    $("#note").val("");
+    $("#symptoms").val("");
+    $("#medication").val("");
+  });
 
 
   $('#save-entry-button').click(function(){
@@ -85,11 +111,13 @@ $(document).ready(function(){
       function (err) {
         if (err) {
           console.error(err);
+          var $toastContent = $('<span>New Entry Unsuccessful!</span>');
+          Materialize.toast($toastContent, 5000);
         }
       });
     // hide form
-    $("#add-entry").hide();
-    });
+    // $("#add-entry").hide();
+  });
 
 
   // list health entry button click handler
@@ -97,8 +125,20 @@ $(document).ready(function(){
     api.showList(function (err, data) {
       if (err) {
         console.error(err);
-      }});
+      }
+      console.log(data);
+      // reverse list, most recent entries at top
+      data.logs.reverse();
+      for (var i = 0; i < data.logs.length; i++) {
+        console.log(data.logs[i].createdAt);
+        data.logs[i].createdAt = dtf.format(new Date(data.logs[i].createdAt));
+      }
+      // handlebars
+      var entryIndexTemplate = Handlebars.compile($('#entry-script').html());
+      var newHTML = entryIndexTemplate(data);
+      $("#list-view").html(newHTML);
     });
+  });
 
 
   // chart.js
