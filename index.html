@@ -14,40 +14,214 @@
     </head>
 
     <body>
+      <nav>
+        <a href="#!" class="brand-logo center">Pressure Tracker</a>
 
-      <!-- Register Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#register-modal">Register</a>
-      <!-- Login Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#login-modal">Login</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Link A</a></li>
+          <li><a href="#">Link B</a></li>
+          <!-- display current-user -->
+          <li><a href="#!" class="dropdown-button current-user" data-activates="dropdown1">Login/Register<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+          <ul id='dropdown1' class='dropdown-content'>
+            <!-- Login Modal Trigger -->
+            <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+            <!-- Register Modal Trigger -->
+            <li><a href="#register-modal" class="modal-trigger">Register</a></li>
+            <li><a href="#!"><i class="fa fa-cog"></i> Settings</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#!" class="logout">Logout</a></li>
+          </ul>
+        </ul>
+
+        <ul id="slide-out" class="side-nav">
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <!-- display current-user -->
+                <a href="#!" class="collapsible-header current-user">Login/Register<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <!-- Login Modal Trigger -->
+                    <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+                    <!-- Register Modal Trigger -->
+                    <li><a href="#register-modal" class="modal-trigger">Register</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#!" class="logout">Logout</a></li>
+                    <li role="separator" class="divider"></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#!">First SideNav</a></li>
+          <li><a href="#!">Second SideNav</a></li>
+        </ul>
+
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </nav>
+
+      <!-- create list health entries -->
+<!--       <a class="waves-effect waves-light btn" href="#" id="list-entries-button">list Health Entries</a> -->
+
+      <section>
+        <div class="row">
+
+          <div class="col s12 m6" id="list-of-entries">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">My Health Entries</span>
+                <ul class="collection" id="list-view">
+<!--  THIS DIV/UL IS WHERE HANDLEBARS WILL PLACE THE LIST OF ENTRIES -->
+                </ul>
+              </div>
+<!--               <div class="card-action">
+                <a href="#" id="list-entries-button"><i class="material-icons">refresh</i></a>
+                <a href="#" id="add-entry-button">Create New Entry</a>
+              </div> -->
+            </div>
+          </div>  <!-- end list-of-entries -->
+
+          <div class="col s12 m6" id="single-entry">
+            <div class="card">
+              <div class="card-content" id="display-view">
+<!--  THIS DIV/UL IS WHERE HANDLEBARS WILL PLACE THE SELECTED SINGLE ENTRY -->
+              </div>
+            </div>
+          </div>  <!-- end single-entry -->
+
+          <div class="col s12 m6" id="add-entry-form">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">New Health Entry</span>
+                <div class="row">
+                  <div class="col s12 m12 l6">
+                  <label>How is your pain right now?</label>
+                  <select class="browser-default" id="pain">
+                    <option value="" disabled selected>Current Pain</option>
+                    <option value="0">0 No Pain</option>
+                    <option value="1">1 Can be ignored</option>
+                    <option value="2">2 Mild Pain</option>
+                    <option value="3">3 Interferes with tasks</option>
+                    <option value="4">4 Moderate Pain</option>
+                    <option value="5">5 Interferes with concentration</option>
+                    <option value="6">6 Severe Pain</option>
+                    <option value="7">7 Interferes with basic needs</option>
+                    <option value="8">8 Bedrest Required</option>
+                    <option value="9">9 Worst Pain Possible</option>
+                  </select>
+                  </div>
+                  <div class="col s12 m12 l6">
+                  <label>How is your mood right now?</label>
+                  <select class="browser-default" id="mood">
+                    <option value="" disabled selected>Current Mood</option>
+                    <option value="1">1 Optimistic</option>
+                    <option value="2">2 Hopeful</option>
+                    <option value="3">3 Content</option>
+                    <option value="4">4 Bored</option>
+                    <option value="5">5 Pessimistic</option>
+                    <option value="6">6 Irritable</option>
+                    <option value="7">7 Disappointed</option>
+                    <option value="8">8 Hopeless</option>
+                    <option value="9">9 Depression</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <form class="col s12">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="note" class="materialize-textarea"></textarea>
+                        <label for="note">Note</label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12 l6">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="symptoms" type="text">
+                        <label class="active" for="symptoms">Current Symtoms</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col s12 m12 l6">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="medication" type="text">
+                        <label class="active" for="medication">Current Medication</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action">
+                <a href="#" class="cancel">Clear</a>
+                <a href="#" id="save-entry-button">Save</a>
+              </div>
+            </div>
+          </div>  <!-- end New Health Entry -->
+
+        </div>
+      </section>
+
+      <script id="entry-script" type="text/x-handlebars-template">
+        {{#each logs}}
+        <li class="collection-item avatar">
+        <a href="#" id="entry-number-{{id}}">
+          <span class="title">{{createdAt}}</span>
+          <p>Note: {{note}}, Symptoms: {{symptoms}}, Medication: {{medication}}, Pain: {{pain}}, Mood: {{mood}}</p>
+        </a>
+        </li>
+        {{/each}}
+      </script>
+
+      <script id="display-script" type="text/x-handlebars-template">
+        <span class="card-title">{{createdAt}}</span>
+        <p>Pain: {{pain}}</p>
+        <p>Mood: {{mood}}</p>
+        <p>Note: {{note}}</p>
+        <p>Symptoms: {{symptoms}}</p>
+        <p>Medication: {{medication}}</p>
+      </script>
+
+      <section id="chart-canvas">
+        <!-- chart.js canvas -->
+        <div class="container">
+          <div class="row">
+            <p class="flow-text chart-title">Barometric Pressure 02141</p>
+            <canvas id="canvas" height="200" width="600"></canvas>
+          </div>
+        </div>
+      </section>
 
       <!-- Register Modal Structure -->
       <div id="register-modal" class="modal">
         <div class="modal-header">
-          <a href="#!" class="modal-action modal-close btn-flat" id="close"><i class="fa fa-times"></i></a>
+          <a href="#!" class="modal-action modal-close btn-flat close-modal"><i class="fa fa-times"></i></a>
+          <h5 class="modal-title">Please Register</h5>
         </div>
         <div class="modal-content">
-          <h4>Register</h4>
-
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="reg-email" type="email" class="validate">
+                <label for="email">Email</label>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
+              <div class="input-field col s12">
+                <input id="reg-password" type="password" class="validate">
+                <label for="password">Password</label>
               </div>
-            </form>
+              <div class="input-field col s12">
+                <input id="reg-confirm" type="password" class="validate">
+                <label for="password">Confirm Password</label>
+              </div>
+            </div>
+          </form>
           <p>Already have an account? <a class="modal-action modal-close waves-effect waves-green btn-flat btn modal-trigger" href="#login-modal">Login</a></p>
-          </div>
         </div>  <!-- end modal-content -->
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create New User</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat btn" id="register">Create User</a>
         </div>
       </div>  <!-- end Register-Modal -->
 
@@ -55,30 +229,26 @@
       <!-- Login Modal Structure -->
       <div id="login-modal" class="modal">
         <div class="modal-header">
-          <a href="#!" class="modal-action modal-close btn-flat" id="close"><i class="fa fa-times"></i></a>
+          <a href="#!" class="modal-action modal-close btn-flat close-modal"><i class="fa fa-times"></i></a>
+          <h5 class="modal-title">Please Login</h5>
         </div>
         <div class="modal-content">
-          <div class="row">
-          <h4>Login</h4>
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="log-email" type="email" class="validate">
+                <label for="email">Email</label>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
+              <div class="input-field col s12">
+                <input id="log-password" type="password" class="validate">
+                <label for="password">Password</label>
               </div>
-            </form>
+            </div>
+          </form>
           <p>No account yet? <a class="modal-action modal-close waves-effect waves-green btn-flat btn modal-trigger" href="#register-modal">Register</a></p>
-          </div>
         </div>  <!-- end modal-content -->
         <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sign In</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat btn" id="login">Sign In</a>
         </div>
       </div>  <!-- end Login-Modal -->
 
@@ -86,7 +256,13 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
-
+      <!-- handlebars -->
+      <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
+      <!-- chart.js -->
+      <script type="text/javascript" src="js/Chart.js"></script>
+      <script type="text/javascript" src="js/Chart.Line.js"></script>
+      <!-- mine -->
       <script type="text/javascript" src="js/project.js"></script>
+      <script type="text/javascript" src="js/api.js"></script>
     </body>
   </html>
