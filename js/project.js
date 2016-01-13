@@ -32,15 +32,27 @@ $(document).ready(function(){
       username: $('#log-email').val(),
       password: $('#log-password').val()
     };
-    var loginCb = function(err) {
+    var loginCb = function (err) {
       if (err){
         console.error(err);
         return;
       }
-      $('#current-user').html('Welcome, ' + $('#log-email').val() + '! <span class="caret"></span>');
+      $('.current-user').html('Welcome, ' + $('#log-email').val() + '! <i class="mdi-navigation-arrow-drop-down right"></i>');
     };
     api.login(credentials, loginCb);
   }); // end submit login click handler
+
+  // logout user
+  $('.logout').click(function(){
+    var logoutCb = function (err) {
+      if (err){
+        console.error(err);
+      }
+      $('.current-user').html('Login/Register<i class="mdi-navigation-arrow-drop-down right"></i>');
+
+    };
+    api.logout(logoutCb);
+  });
 
 
   // sync openWeather

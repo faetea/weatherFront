@@ -31,6 +31,16 @@ var api = {
     }, callback);
   },
 
+  logout: function (callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/logout',
+      contentType: 'application/json; charset=utf-8',
+      xhrFields: { withCredentials: true }, // tells jquery to use cookies
+      dataType: 'json'
+    }, callback);
+  },
+
   sync: function (callback) {
     this.ajax({
       method: 'GET',

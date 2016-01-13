@@ -19,47 +19,46 @@
         <a href="#!" class="brand-logo center">Pressure Tracker</a>
 
         <ul class="right hide-on-med-and-down">
-          <li><a href="#!">First Sidebar Link</a></li>
-          <li><a href="#!">Second Sidebar Link</a></li>
+          <li><a href="#!">First Navbar</a></li>
+          <li><a href="#!">Second Navbar</a></li>
           <!-- display current-user -->
-          <li><a href="#!" class="dropdown-button" data-activates="dropdown1" id="current-user">Login/Register<i class="mdi-navigation-arrow-drop-down right"></i><span class="caret"></span></a></li>
+          <li><a href="#!" class="dropdown-button current-user" data-activates="dropdown1">Login/Register<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
           <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">Login</a></li>
-            <li><a href="#!">Register</a></li>
+            <!-- Login Modal Trigger -->
+            <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+            <!-- Register Modal Trigger -->
+            <li><a href="#register-modal" class="modal-trigger">Register</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#!">Logout</a></li>
+            <li><a href="#!" class="logout">Logout</a></li>
           </ul>
         </ul>
 
         <ul id="slide-out" class="side-nav">
-          <li><a href="#!">First Sidebar Link</a></li>
-          <li><a href="#!">Second Sidebar Link</a></li>
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
               <li>
-                <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
+                <!-- display current-user -->
+                <a href="#!" class="collapsible-header current-user">Login/Register<i class="mdi-navigation-arrow-drop-down right"></i></a>
                 <div class="collapsible-body">
                   <ul>
-                    <li><a href="#!">First</a></li>
-                    <li><a href="#!">Second</a></li>
-                    <li><a href="#!">Third</a></li>
-                    <li><a href="#!">Fourth</a></li>
+                    <!-- Login Modal Trigger -->
+                    <li><a href="#login-modal" class="modal-trigger">Login</a></li>
+                    <!-- Register Modal Trigger -->
+                    <li><a href="#register-modal" class="modal-trigger">Register</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#!" class="logout">Logout</a></li>
+                    <li role="separator" class="divider"></li>
                   </ul>
                 </div>
               </li>
             </ul>
           </li>
+          <li><a href="#!">First SideNav</a></li>
+          <li><a href="#!">Second SideNav</a></li>
         </ul>
 
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </nav>
-
-      <!-- Register Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#register-modal">Register</a>
-      <!-- Login Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#login-modal">Login</a>
-      <!-- display current-user -->
-      <a href="#" id='current-user'><span class="caret"></span></a>
 
       <!-- create add health entry -->
       <a class="waves-effect waves-light btn" href="#add-entry" id="add-entry-button">add Health Entry</a>
