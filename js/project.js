@@ -8,6 +8,7 @@ $(document).ready(function(){
   });
 
   // $("#add-entry").hide();
+  $("#single-entry").hide();
 
   var dtf = new Intl.DateTimeFormat('en-us', { year: "numeric", month: "short", day: "numeric", hour: "2-digit" });
 
@@ -31,6 +32,34 @@ $(document).ready(function(){
     $('#reg-confirm').val("");
   }); // end submit register click handler
 
+
+  var refreshList = function (err, data) {
+    if (err) {
+      console.error(err);
+    }
+    console.log(data);
+    // reverse list, most recent entries at top
+    data.logs.reverse();
+    for (var i = 0; i < data.logs.length; i++) {
+      data.logs[i].createdAt = dtf.format(new Date(data.logs[i].createdAt));
+    }
+    // handlebars
+    var entryIndexTemplate = Handlebars.compile($('#entry-script').html());
+    var newHTML = entryIndexTemplate(data);
+    $("#list-view").html(newHTML);
+    //make a forEach
+    data.logs.forEach(function (singleEntry) {
+      $("#entry-number-" + singleEntry.id).click(function() {
+        // handlebars
+        var displayIndexTemplate = Handlebars.compile($('#display-script').html());
+        var displayHTML = displayIndexTemplate(singleEntry);
+        $("#display-view").html(displayHTML);
+        $("#single-entry").show();
+      });
+    });
+  };
+
+
   // login user
   $('#login').click(function(){
     var credentials = {
@@ -43,22 +72,8 @@ $(document).ready(function(){
         return;
       }
       $('.current-user').html('Welcome, ' + $('#log-email').val() + '! <i class="mdi-navigation-arrow-drop-down right"></i>');
-      api.showList(function (err, data) {
-        if (err) {
-          console.error(err);
-        }
-        console.log(data);
-        // reverse list, most recent entries at top
-        data.logs.reverse();
-        for (var i = 0; i < data.logs.length; i++) {
-          console.log(data.logs[i].createdAt);
-          data.logs[i].createdAt = dtf.format(new Date(data.logs[i].createdAt));
-        }
-        // handlebars
-        var entryIndexTemplate = Handlebars.compile($('#entry-script').html());
-        var newHTML = entryIndexTemplate(data);
-        $("#list-view").html(newHTML);
-      });
+      // auto-fill user's past logs on login
+      api.showList(refreshList);
     };
     api.login(credentials, loginCb);
     $('#log-password').val("");
@@ -71,7 +86,6 @@ $(document).ready(function(){
         console.error(err);
       }
       $('.current-user').html('Login/Register<i class="mdi-navigation-arrow-drop-down right"></i>');
-
     };
     api.logout(logoutCb);
   });
@@ -114,6 +128,8 @@ $(document).ready(function(){
           var $toastContent = $('<span>New Entry Unsuccessful!</span>');
           Materialize.toast($toastContent, 5000);
         }
+        // refresh user's logs on save
+        api.showList(refreshList);
       });
     // hide form
     // $("#add-entry").hide();
@@ -122,22 +138,8 @@ $(document).ready(function(){
 
   // list health entry button click handler
   $('#list-entries-button').click(function(){
-    api.showList(function (err, data) {
-      if (err) {
-        console.error(err);
-      }
-      console.log(data);
-      // reverse list, most recent entries at top
-      data.logs.reverse();
-      for (var i = 0; i < data.logs.length; i++) {
-        console.log(data.logs[i].createdAt);
-        data.logs[i].createdAt = dtf.format(new Date(data.logs[i].createdAt));
-      }
-      // handlebars
-      var entryIndexTemplate = Handlebars.compile($('#entry-script').html());
-      var newHTML = entryIndexTemplate(data);
-      $("#list-view").html(newHTML);
-    });
+    // refresh user's logs
+    api.showList(refreshList);
   });
 
 

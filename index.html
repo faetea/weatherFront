@@ -65,20 +65,30 @@
 
       <section>
         <div class="row">
-          <div class="col s12 m6 left" id="list-of-entries">
+
+          <div class="col s12 m6" id="list-of-entries">
             <div class="card">
               <div class="card-content">
                 <span class="card-title">My Health Entries</span>
                 <ul class="collection" id="list-view">
+<!--  THIS DIV/UL IS WHERE HANDLEBARS WILL PLACE THE LIST OF ENTRIES -->
                 </ul>
               </div>
-              <div class="card-action">
-                <!-- create list health entries -->
+<!--               <div class="card-action">
                 <a href="#" id="list-entries-button"><i class="material-icons">refresh</i></a>
                 <a href="#" id="add-entry-button">Create New Entry</a>
-              </div>
+              </div> -->
             </div>
           </div>  <!-- end list-of-entries -->
+
+          <div class="col s12 m6" id="single-entry">
+            <div class="card">
+              <div class="card-content" id="display-view">
+<!--  THIS DIV/UL IS WHERE HANDLEBARS WILL PLACE THE SELECTED SINGLE ENTRY -->
+              </div>
+            </div>
+          </div>  <!-- end single-entry -->
+
           <div class="col s12 m6" id="add-entry-form">
             <div class="card">
               <div class="card-content">
@@ -146,21 +156,33 @@
                 </div>
               </div>
               <div class="card-action">
-                <a href="#" class="cancel">Cancel</a>
+                <a href="#" class="cancel">Clear</a>
                 <a href="#" id="save-entry-button">Save</a>
               </div>
             </div>
           </div>  <!-- end New Health Entry -->
+
         </div>
       </section>
 
       <script id="entry-script" type="text/x-handlebars-template">
         {{#each logs}}
         <li class="collection-item avatar">
+        <a href="#" id="entry-number-{{id}}">
           <span class="title">{{createdAt}}</span>
-          <p>Pain: {{pain}}, Mood: {{mood}}, Note: {{note}}, Symptoms: {{symptoms}}, Medication: {{medication}}</p>
+          <p>Note: {{note}}, Symptoms: {{symptoms}}, Medication: {{medication}}, Pain: {{pain}}, Mood: {{mood}}</p>
+        </a>
         </li>
         {{/each}}
+      </script>
+
+      <script id="display-script" type="text/x-handlebars-template">
+        <span class="card-title">{{createdAt}}</span>
+        <p>Pain: {{pain}}</p>
+        <p>Mood: {{mood}}</p>
+        <p>Note: {{note}}</p>
+        <p>Symptoms: {{symptoms}}</p>
+        <p>Medication: {{medication}}</p>
       </script>
 
       <section id="chart-canvas">
@@ -176,7 +198,7 @@
       <!-- Register Modal Structure -->
       <div id="register-modal" class="modal">
         <div class="modal-header">
-          <a href="#!" class="modal-action modal-close btn-flat" id="close"><i class="fa fa-times"></i></a>
+          <a href="#!" class="modal-action modal-close btn-flat close-modal"><i class="fa fa-times"></i></a>
           <h5 class="modal-title">Please Register</h5>
         </div>
         <div class="modal-content">
@@ -207,7 +229,7 @@
       <!-- Login Modal Structure -->
       <div id="login-modal" class="modal">
         <div class="modal-header">
-          <a href="#!" class="modal-action modal-close btn-flat" id="close"><i class="fa fa-times"></i></a>
+          <a href="#!" class="modal-action modal-close btn-flat close-modal"><i class="fa fa-times"></i></a>
           <h5 class="modal-title">Please Login</h5>
         </div>
         <div class="modal-content">
