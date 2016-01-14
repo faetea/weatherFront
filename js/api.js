@@ -77,4 +77,13 @@ var api = {
     }, callback);
   },
 
+  health: function (callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/health',
+      contentType: 'application/json; charset=utf-8',
+      xhrFields: { withCredentials: true } // tells jquery to use cookies
+    }, callback);
+  },
+
 }; // end api
