@@ -3,7 +3,7 @@
 
 var api = {
 //  url: 'http://localhost:3000', // development
-  url: 'https://enigmatic-thicket-1314.herokuapp.com/', // deployment
+  url: 'https://enigmatic-thicket-1314.herokuapp.com', // deployment
 
   ajax: function (config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
