@@ -59,6 +59,52 @@ $(document).ready(function(){
     });
   };
 
+  var userChartData = {
+    labels : [],
+    datasets : [
+      {
+        label: "My Pain Log",
+        fillColor : "rgba(220,220,220,0.2)",
+        strokeColor : "rgba(220,220,220,1)",
+        pointColor : "rgba(220,220,220,1)",
+        pointStrokeColor : "#fff",
+        pointHighlightFill : "#fff",
+        pointHighlightStroke : "rgba(220,220,220,1)",
+        data : []
+      },
+      {
+        label: "My Mood Log",
+        fillColor: "rgba(151,187,205,0.2)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(151,187,205,1)",
+        data: []
+      }
+    ]
+  };
+
+  var userCtx = $("#user-canvas").get(0).getContext("2d");
+
+  var userData = function (err, data) {
+    console.log(data);
+    if (err) {
+      console.error(err);
+    } else {
+      userChartData.datasets[0].data = data.pains;
+      userChartData.datasets[1].data = data.moods;
+      userChartData.labels = data.createdAts;
+
+      var userChart = new Chart(userCtx).Line(userChartData, {
+        responsive: true,
+        legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"color:<%=datasets[i].strokeColor%>\"><i class=\"fa fa-circle\"></i></span>&nbsp;&nbsp;<%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+      });
+      var legend = userChart.generateLegend();
+      console.log(legend);
+      $('#user-legend').append(legend);
+    }
+  };
 
   // login user
   $('#login').click(function(){
@@ -74,10 +120,12 @@ $(document).ready(function(){
       $('.current-user').html('Welcome, ' + $('#log-email').val() + '! <i class="mdi-navigation-arrow-drop-down right"></i>');
       // auto-fill user's past logs on login
       api.showList(refreshList);
+      api.health(userData);
     };
     api.login(credentials, loginCb);
     $('#log-password').val("");
   }); // end submit login click handler
+
 
   // logout user
   $('.logout').click(function(){
@@ -161,7 +209,6 @@ $(document).ready(function(){
   };
 
   window.onload = function(){
-    // var ctx = document.getElementById("canvas").getContext("2d");
     var ctx = $("#canvas").get(0).getContext("2d");
 
     // pressure data
@@ -177,7 +224,6 @@ $(document).ready(function(){
         });
       }
     });
-
   };
 
 
