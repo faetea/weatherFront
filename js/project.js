@@ -222,21 +222,20 @@ $(document).ready(function(){
       }
     };
     var pressureCtx = $("#pressure-canvas").get(0).getContext("2d");
-    api.pressureRange(refreshWeeks);    // refreshWeeks pressure data
+    api.pressureRange(refreshWeeks, 1);    // refreshWeeks pressure data
   };
 
-
   // /pressure/date?weeks=12
-  // $('#weeks12').click(function() {
-  //   api.pressureRange(refreshWeeks);
-  // });
+  $('#weeks12').click(function() {
+    api.pressureRange(refreshWeeks, 12);
+  });
   // /pressure/date?weeks=4
-  // $('#weeks4').click(function() {
-  //   api.pressureRange(refreshWeeks);
-  // });
+  $('#weeks4').click(function() {
+    api.pressureRange(refreshWeeks, 4);
+  });
   // /pressure/date?weeks=1
-  // $('#weeks1').click(function() {
-  //   api.pressureRange(refreshWeeks);
-  // });
+  $('#weeks1').click(function() {
+    api.pressureRange(refreshWeeks, 1);
+  });
 
 }); // end document ready
