@@ -209,22 +209,34 @@ $(document).ready(function(){
   };
 
   window.onload = function(){
-    var ctx = $("#canvas").get(0).getContext("2d");
-
-    // pressure data
-    api.pressure(function (err, data) {
+    var refreshWeeks = function (err, data) {
       if (err) {
         console.error(err);
       } else {
         lineChartData.datasets[0].data = data.pressures;
         lineChartData.labels = data.createdAts;
 
-        window.myLine = new Chart(ctx).Line(lineChartData, {
+        var pressureGraph = new Chart(pressureCtx).Line(lineChartData, {
           responsive: true
         });
       }
-    });
+    };
+    var pressureCtx = $("#pressure-canvas").get(0).getContext("2d");
+    api.pressureRange(refreshWeeks);    // refreshWeeks pressure data
   };
 
 
-  }); // end document ready
+  // /pressure/date?weeks=12
+  // $('#weeks12').click(function() {
+  //   api.pressureRange(refreshWeeks);
+  // });
+  // /pressure/date?weeks=4
+  // $('#weeks4').click(function() {
+  //   api.pressureRange(refreshWeeks);
+  // });
+  // /pressure/date?weeks=1
+  // $('#weeks1').click(function() {
+  //   api.pressureRange(refreshWeeks);
+  // });
+
+}); // end document ready

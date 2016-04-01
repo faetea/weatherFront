@@ -17,23 +17,6 @@ The front-end for my weather pressure, health application.
 
 list past entries
 
-## Prototype methods for Chart.js
-
-.getPointsAtEvent( event )
-canvas.onclick = function(evt){
-  var activePoints = myLineChart.getPointsAtEvent(evt);
-};
-
-.update( )
-myLineChart.datasets[0].points[2].value = 50;
-myLineChart.update();
-
-.addData( valuesArray, label )
-myLineChart.addData([40, 60], "August");
-
-.removeData( )
-myLineChart.removeData();
-
 ## Useful Links
 
 Materialize, a CSS Framework based on material design
