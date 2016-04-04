@@ -1,25 +1,22 @@
 # weatherFront
 
-The front-end for my weather pressure, health application.
+The front-end for my barometric pressure, health application.
+
+[weatherBE](https://github.com/faetea/weatherBE)
+is the associated back-end repository
 
 ## <https://github.com/indexzero/http-server>
 
-`http-server` localhost:8080
+Locally I am using `http-server` localhost:8080 for my Front-End,
+and `npm start` localhost:3000 for my Back-End
 
-## make new entry
+## Technologies
 
--   date of symptoms
--   pain-rank, 1 - 9
--   mood-rating, 1 - 9
--   note, Describe symptoms
--   symptoms, list symptoms
--   medication, list medications
-
-list past entries
+JavaScript, jQuery, Handlebars, Chart.js, Materialize
 
 ## Useful Links
 
-Materialize, a CSS Framework based on material design
-
+-   [Handlebars.js](http://handlebarsjs.com/)
+-   [Chart.js Docs](http://www.chartjs.org/docs/)
 -   [Materialize Docs](http://materializecss.com/)
 -   [Materialize Github](https://github.com/Dogfalo/materialize)

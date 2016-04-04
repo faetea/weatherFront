@@ -2,9 +2,9 @@
 'use strict';
 
 var api = {
-  url: 'http://localhost:3000', // development
+  // url: 'http://localhost:3000', // development
   // url: 'https://enigmatic-thicket-1314.herokuapp.com', // heroku deployment
-  // url: 'http://m25.mooo.com:3000', // anvil deployment
+  url: 'http://m25.mooo.com:3000', // anvil deployment
 
   ajax: function (config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
