@@ -164,6 +164,7 @@
         </div>
       </section>
 
+
       <script id="entry-script" type="text/x-handlebars-template">
         {{#each logs}}
         <li class="collection-item avatar">
@@ -175,6 +176,7 @@
         {{/each}}
       </script>
 
+
       <script id="display-script" type="text/x-handlebars-template">
         <span class="card-title">{{createdAt}}</span>
         <p>Pain: {{pain}}</p>
@@ -183,6 +185,7 @@
         <p>Symptoms: {{symptoms}}</p>
         <p>Medication: {{medication}}</p>
       </script>
+
 
       <section id="chart-canvas">
         <div class="row">
@@ -199,18 +202,19 @@
             <div class="card">
               <div class="card-content">
                 <p class="flow-text chart-title">Barometric Pressure 02141</p>
-                <canvas id="canvas" height="200" width="600"></canvas>
+                <canvas id="pressure-canvas" height="200" width="600"></canvas>
               </div>
               <div class="card-action">
-                <a href="#">3 Months</a>
-                <a href="#">1 Month</a>
-                <a href="#">1 Week</a>
-                <a href="#">1 Day</a>
+                <a class="btn-flat" id="weeks12">3 Months</a>
+                <a class="btn-flat" id="weeks4">1 Month</a>
+                <a class="btn-flat" id="weeks1">1 Week</a>
+                <a class="btn-flat" id="hours24">1 Day</a>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       <!-- Register Modal Structure -->
       <div id="register-modal" class="modal">
