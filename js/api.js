@@ -2,8 +2,9 @@
 'use strict';
 
 var api = {
-//  url: 'http://localhost:3000', // development
-  url: 'https://enigmatic-thicket-1314.herokuapp.com/', // deployment
+  // url: 'http://localhost:3000', // development
+  // url: 'https://enigmatic-thicket-1314.herokuapp.com', // heroku deployment
+  url: 'http://m25.mooo.com:3000', // anvil deployment
 
   ajax: function (config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -46,6 +47,15 @@ var api = {
     this.ajax({
       method: 'GET',
       url: this.url + '/sync',
+      contentType: 'application/json; charset=utf-8',
+      xhrFields: { withCredentials: true } // tells jquery to use cookies
+    }, callback);
+  },
+
+  pressureRange: function (callback, numWeeks) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/pressure?weeks=' + numWeeks,
       contentType: 'application/json; charset=utf-8',
       xhrFields: { withCredentials: true } // tells jquery to use cookies
     }, callback);
